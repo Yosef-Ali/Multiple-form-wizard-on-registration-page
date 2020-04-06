@@ -1,0 +1,1376 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>PSNP</title>
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <meta name="author" content="Pike Web Development - https://www.pikephp.com">
+    
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/assets/images/favicon.ico">
+        <!-- Bootstrap CSS -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Font Awesome CSS -->
+        <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Custom CSS -->
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- BEGIN CSS for this page -->
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+        <!-- BEGIN CSS for Context Menu -->
+        <link rel="stylesheet" type="text/css" href="https://swisnl.github.io/jQuery-contextMenu/dist/jquery.contextMenu.min.css" />
+        <link href="/assets/css/jquery-confirm.min.css" rel="stylesheet" />
+        <link href="/assets/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+        <link href="/assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+        <!-- END CSS for this page -->
+
+<style>
+	/* Mark input boxes that gets an error on validation: */
+/* input.invalid {
+  background-color: #ffdddd;
+} */
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+</style>
+
+
+    
+
+</head>
+<body>
+
+    <div>
+        
+
+
+        <main role="main">
+
+            <div id="main">
+                <!-- top bar navigation -->
+                <div class="headerbar">
+                    <!-- LOGO -->
+
+                    <div class="headerbar-left">
+                        <a href="/Report/ReportViewer/Home" class="logo">
+                            <img alt="logo" src="/assets/images/llogo.png" />
+                            <span><strong>MIS</strong> </span>
+                        </a>
+                    </div>
+
+                    <nav class="navbar-custom">
+
+                        <ul class="list-inline float-right mb-0">
+                            <li class="list-inline-item dropdown notif">
+                                <span class="profile-name"><strong style="color:#f6c63a">Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><span id="cdateTime"></span></span></br>
+                                <span class="profile-name"><strong style="color:#f6c63a">Organization: </strong><span id="organization" style="color: #fafbfd;"></span></span>
+                            </li>
+
+                            <li class="list-inline-item dropdown notif">
+                                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <i class="fa fa-language bigfonts" aria-hidden="true"></i><span class=""></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5 class="text-overflow"><small class="localize" data-key="Language Setting">Language Setting</small> </h5>
+                                    </div>
+                                    <!-- item-->
+                                    <!--
+                                         * Note :
+                                         * Please Keep LocID in Url throught the application .
+                                         * It is inconsistent throughtout the application :( . Its being Referred as LocId , Locid , LocId , Location ,LocationId etc
+                                    -->
+                                    <a href="/Registration/Households/ChangeLanguage?languageId=2&amp;actionn=EditGeneralInfo&amp;controllern=Households"
+                                       class="dropdown-item  notify-item">
+                                        <i class="fa fa-dot-circle-o bigfonts"></i> <span>English</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="/Registration/Households/ChangeLanguage?languageId=1&amp;actionn=EditGeneralInfo&amp;controllern=Households"
+                                       class="dropdown-item active notify-item">
+                                        <i class="fa fa-dot-circle-o bigfonts"></i>
+                                        <span>አማርኛ </span>
+                                    </a>
+                                    
+
+                                    <!-- item-->
+
+
+                                </div>
+                            </li>
+
+
+                            <li class="list-inline-item dropdown notif">
+
+                                <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                        <span class="profile-name" style="width:100%"><strong style="color:#f6c63a">Logged In As: </strong><span class="designation" id="fullname"></span><i style="color:red" class="fa fa-power-off"></i></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <a class="dropdown-item notify-item" href="/Identity/Users/EditProfile/pwofficer@mekedela.moa">
+                                        <i class="fa fa-user"></i> <span>Edit Profile</span>
+                                    </a>
+                                    <!-- item-->
+                                    <a onclick="return ConfirmAlert('LogOut');" class="dropdown-item notify-item" href="/Identity/Users/LogOut/System.Security.Claims.ClaimsPrincipal">
+                                        <i class="fa fa-external-link"></i> <span>LogOut</span>
+                                    </a>
+
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left">
+                                    <i class="fa fa-fw fa-bars"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+                <!-- End Navigation -->
+                <!-- Left Sidebar -->
+                <div class="left main-sidebar">
+
+                    <div class="sidebar-inner leftscroll">
+
+                        <div id="sidebar-menu">
+
+                            <ul class="list-unstyled">
+
+                                <li class="submenu">
+                                    <a href="/Report/ReportViewer/Home?class=localize"><i class="fa fa-tachometer"></i> <span class="localize"> Dashboard</span></a>
+                                </li>
+                                        <li class="submenu operation">
+            <a href="#"><i class="fa fa-code-fork bigfonts" aria-hidden="true"></i> <span> Operations </span> <span class="menu-arrow"></span></a>
+            <ul>
+
+                                    <li class="submenu registration">
+                        <a><i class="fa fa-book"></i> <span>Retargeting & Registration </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="submenu targetClass">
+                                    <a href="#"> <span> Retargeting </span> <span class="menu-arrow"></span></a>
+                                    <ul class="list-unstyled">
+                                        <li class="HouseholdListForRetargeting"><a class="nav-link " href="/Registration/Households/GetHouseHoldsForRetargeting">HH &amp; Member Update</a></li>
+                                        <li class="AddHousehold"> <a class="nav-link" href="/Registration/Households/GetHouseHolds">Add New HH &amp; Member</a></li>
+                                    </ul>
+                                </li>
+                                <li class="HouseholdListForPendingStatus"><a class="nav-link" href="/Registration/Households/GetPendingHouseHoldsList">View Pending Registation List</a></li>
+                                <li class="HouseholdClientCard"> <a class="nav-link" href="/Registration/HouseholdClientCard/GetHouseHoldsListForClientId">Issue Client Card</a></li>
+                                <li class="BlankMFIAccount"><a class="nav-link" href="/Registration/HouseholdListForBlankMFIAccount/GetHouseHoldsListForBlankMFIAccount">Open MFI Account</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu" style="display:none">
+                        <a><i class="fa fa-fire"></i> <span>Manage HRD </span> <span class="menu-arrow"></span> </a>
+                        <ul class="list-unstyled">
+                            <li class="HRDHousehold"> <a class="nav-link" href="/Registration/Households/GetHouseHoldsHRD">Manage Household Profiles</a></li>
+                            <li class="HouseholdListForAssetLoss"> <a class="nav-link" href="/Registration/HouseholdListForAssetLoss/GetHouseholdListForAssetLossDetails">Record Household Asset Loss</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="submenu HHRegistry">
+                        <a><i class="fa fa-upload"></i> <span>Import HH Registration</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="ImportBankAccount"><a class="nav-link" href="/ImportExport/ImportExport/ImportBank">Import MFI Accounts</a></li>
+                                <li class="ImportExportHousehold"><a class="nav-link" href="/ImportExport/ImportExport/ImportHousehold">Import Households</a></li>
+                                <li class="ImportExportMembers"><a class="nav-link" href="/ImportExport/ImportExport/ImportMember">Import Household Members</a></li>
+                                <li class="ImportExportAsset"><a class="nav-link" href="/ImportExport/ImportExport/ImportAsset">Import Household Assets</a></li>
+                                <li class="ImportExportChar"><a class="nav-link" href="/ImportExport/ImportExport/ImportAssetCharacterstics">Import Household Characterstics</a></li>
+                                                            <li class="ApproveHousehold"><a class="nav-link" href="/ImportExport/ImportExportApprover/ImportHousehold">Approve Imported Households</a></li>
+                                <li class="ApproveBankAccount"><a class="nav-link" href="/ImportExport/ImportExportApprover/ImportBank">Approve Imported Household Bank Accounts</a></li>
+                                <li class="ApproveHouseholdmembers"><a class="nav-link" href="/ImportExport/ImportExportApprover/ImportMember">Approve Imported Household Members</a></li>
+                                <li class="ApproveHouseholdAsset"><a class="nav-link" href="/ImportExport/ImportExportApprover/ImportAsset">Approve Imported Household Assets</a></li>
+                                <li class="ApproveHouseholdChar"><a class="nav-link" href="/ImportExport/ImportExportApprover/ImportAssetCharacterstics">Approve Imported Household Characterstics</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu" style="display:none">
+                        <a><i class="fa fa-fire"></i> <span>Manage HRD </span> <span class="menu-arrow"></span> </a>
+                        <ul class="list-unstyled">
+                            <li> <a class="nav-link" href="/Registration/Households/GetHouseHoldsHRD">Manage Household Profiles</a></li>
+                            <li> <a class="nav-link" href="/Registration/HouseholdListForAssetLoss/GetHouseholdListForAssetLossDetails">Record Household Asset Loss</a></li>
+                        </ul>
+                    </li>
+
+                                    <li class="submenu publicwork">
+                        <a href="#"><i class="fa fa-eercast bigfonts"></i> <span class="localize" data-key=""> Public Works </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="PrintAttendance"><a class="nav-link" href="/PublicWork/PrintAttendance/GetPrintAttendanceLocations">Print Attendance</a></li>
+                                <li class="RecordAttendance"><a class="nav-link" href="/PublicWork/PWAttendances/GetPWAttendanceLocations">Record Attendance</a></li>
+                                <li class="pwteam"><a class="nav-link" href="/PublicWork/PWTeams/GetPWTeamLocation">Configure PW Team</a></li>
+                                <li class="pwexemption"><a class="nav-link" href="/PublicWork/PWExemptes/GetPWExemptedLocation">PW Exemption</a></li>
+                                                            <li class="pdcalculation"><a href="/PublicWork/PDCalculations/GetPDLocations">View Person Days (PD) Estimates</a></li>
+                                <li class="pwActualAnnual"><a class="nav-link" href="/PublicWork/PWActualAnnualPlan/GetPWAnnualLocation">PW Annual Activity Tracking</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu planning">
+                        <a href="#"><i class="fa fa-tasks bigfonts"></i> <span class="localize" data-key=""> Planning </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="PWActivityPlanning"><a href="/PublicWork/PWActivitiesPlanning/GetPWActivitiesPlanningLocation">PW Activities Planning</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu tdsmanagement">
+                        <a href="#"><i class="fa fa-exchange bigfonts"></i> <span class="localize" data-key=""> TDS Transition Management </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="tdstransition"><a class="nav-link" href="/PublicWork/TDSTransitions/GetTDSTransitionLocation">TDS Transition</a></li>
+                                <li class="LinkToSocialService"><a class="nav-link" href="/PublicWork/LinkToSocialServices/GetLinkToSocialServiceLocations">TDS Link To SocialServices</a></li>
+                                <li class="pwtransition"><a class="nav-link" href="/PublicWork/PWTransitions/GetPWTransitionLocation">PW Transition</a></li>
+                                <li class="potential"><a class="nav-link" href="/PublicWork/PWTransitions/GetAllPotentialTransitionedHHByDate">Notify HH to be Transitioned</a></li>
+                        </ul>
+                    </li>
+                                    <li class="submenu complaint">
+                        <a href="#"><i class="fa fa-pencil-square-o bigfonts"></i> <span class="localize" data-key=""> Complaints </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                                <li class="appeal"><a class="nav-link" href="/Compliants/Appeals/GetAppealLocations">Complaint Registration</a></li>
+                                <li class="complaintResolution"><a class="nav-link" href="/Compliants/ComplaintResolution/GetComplaintResolutionLocations">Complaint Resolution</a></li>
+                        </ul>
+                    </li>
+                                                                <li class="submenu Livelihood" hidden="hidden">
+                    <a href="#"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="localize" data-key=""> Livelihood </span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li class="LHPlans"><a class="nav-link localize" data-key="" href="/Livelihood/LHGroup/LHPlans">Planning</a> </li>
+                        <li class="Groups"><a class="nav-link localize" data-key="" href="/Livelihood/LHGroup/Groups">Groups</a> </li>
+                        <li class="GroupMembers"><a class="nav-link localize" data-key="" href="/Livelihood/LHGroup/GroupMembers">Group Members</a> </li>
+                        <li class="Trainings"><a class="nav-link localize" data-key="" href="/Livelihood/LHGroup/Trainings">Group Trainings</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    <li class="submenu reports">
+        <a href="#"><i class="fa fa-pie-chart bigfonts" aria-hidden="true"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
+        <ul class="list-unstyled">
+            <li class="HouseHoldsReport submenu">
+                <a><i class="fa fa-id-card bigfonts"></i> <span>Households </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li class="HouseHoldsReport"><a class="nav-link" href="/Report/HouseHoldReport/GetHouseHoldsListLocation">HouseHold Reports</a></li>
+                </ul>
+            </li>
+            <li class="submenu  PublicWorkReport">
+                <a><i class="fa fa-eercast bigfonts"></i> <span>Public works </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li class="PublicWorkReport submenu"><a class="nav-link" href="/Report/PublicWorkReport/GetPublicWorkListLocation">Public Work Reports</a></li>
+                </ul>
+            </li>
+            <li class="submenu TransferReport">
+                <a><i class="fa fa-paypal bigfonts"></i> <span>Transfer </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li class="TransferReport submenu"><a class="nav-link" href="/Report/TransferReport/GetTransferListLocation">Transfer Reports</a></li>
+                </ul>
+            </li>
+            <li class="submenu MandE">
+                <a><i class="fa fa-id-card bigfonts"></i> <span> M & E </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li class="logframe"><a href="/MonitoringAndEvaluation/LogFrame/GetReport">Logframe Reports</a></li>
+                    <li class="mandereport"><a href="/MonitoringAndEvaluation/Report">View M&amp;E Reports</a></li>
+                    <li class="scorecard"><a href="/MonitoringAndEvaluation/Report/ScoreCard">M&amp;E Score Card</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sidebar -->
+
+                ﻿<style>
+    .martop {
+        margin-top: 32px !important;
+    }
+</style>
+<link href="/assets/plugins1/jquery.calendars/css/jquery.calendars.picker.css" rel="stylesheet" />
+<link href="/assets/plugins1/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
+<div class="content-page">
+
+    <!-- Start content -->
+    <div class="content martop">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="breadcrumb-holder">
+                        <h1 class="main-title float-left localize">Edit General Info</h1>
+                        <ol class="breadcrumb float-right">
+                            <li class="breadcrumb-item localize" data-key="HH Registration">HH Registration</li>
+                            <li class="breadcrumb-item localize" data-key="Register">Register</li>
+                            <li class="breadcrumb-item active localize" data-key="Edit General Info">Edit General Info</li>
+                        </ol>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tab-custom">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link  localize" href="/Registration/Households/GetHouseHoldsForUpdate">Household and Member List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active localize" href="/Registration/GeneralInfo/GetGeneralInfo">Household General Information</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3"><span class="mandatory localize" data-key="indicates mandatory"> * indicates mandatory </span></div>
+                    </div>
+
+                    <form data-parsley-validate novalidate method="post" enctype="multipart/form-data" action="/Registration/GeneralInfo/UpdateHouseholdGeneralInfo">
+                            <div id="Household_General_Info_Update" class="card mb-3">
+                                <input type="hidden" id="txtLongitude" data-val="true" data-val-number="The field Longitude must be a number." data-val-required="The Longitude field is required." name="updateCommand.Longitude" value="">
+                                <input type="hidden" id="txtLatitude" data-val="true" data-val-number="The field Latitude must be a number." data-val-required="The Latitude field is required." name="updateCommand.Latitude" value="">
+                                <input type="hidden" value="ae45a897-6e9b-49e4-874c-13d318b15299" id="hfID" data-val="true" data-val-required="The HouseHoldId field is required." name="updateCommand.HouseHoldId" />
+                                <input type="hidden" value="614cabb4-f835-4cf2-bca2-bc40381cedfd" id="hfID" data-val="true" data-val-required="The AdminLocationId field is required." name="updateCommand.AdminLocationId" />
+                                <input type="hidden" value="304010021/122" id="hfID" name="updateCommand.HouseHoldIdNumber" />
+                                <input type="hidden" value="304010021/122" id="hfID" name="updateCommand.HouseholdMembmerIdNumber" />
+                                <div class="card-body">
+                                    <div class="alert alert-success" role="alert">
+                                       
+                                        <div class="col-sm-18">
+                                         
+                                            <div class="col-lg-8 col-xl-8 border-right">
+                                                <b class="localize" data-key="Current Location :">Current Location : </b>  Ethiopia&gt;&gt; Amhara&gt;&gt; South Wolo&gt;&gt; Mekdela&gt;&gt; GOBADIN&gt;&gt;022 KETENA 3
+                                                <br />
+                                                <b class="localize" data-key="Household Id :">Household Id : </b>  304010021/122
+                                                <br />
+                                                <b class="localize" data-key="Household Member Id :">Household Member Id : </b> 304010021/122
+                                                <br />
+
+                                                <div class="m-b-10"></div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card  tab mb-3">
+                                        <div class="card-header">
+                                            <h3><i class="fa fa-user"></i><span class="localize" data-key="Profile Details">Profile Details</span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span style="float: left; margin-right:5px;">
+
+                                                            <div class="imguploaded form-group text-right">
+                                                                <img src="/Images/unknownUser.png" id="imgPreview" alt="" />
+                                                                <div class="clearfix"></div>
+                                                                <span class="text-danger text-center">(Household Image)</span>
+
+
+                                                            </div>
+
+                                                    </span>
+
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Member Types">Member Types</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlLocalLanguageGender" class="form-control" data-val="true" data-val-required="The MemberTypeId field is required." name="updateCommand.MemberTypeId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option selected="selected" value="1">Regular(PSNP)</option>
+<option value="2">Non-PSNP</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="National ID">National ID</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="" type="text" id="txtNationalIdNo" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter National Id No." required maxlength="20" autocomplete="off" autofocus name="updateCommand.NationalMemberIDNumber">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="First Name">First Name</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="Adem " type="text" id="txtFirstNameEng" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter First Name (Eng)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.FirstName_Eng">
+                                                        </div>
+                                                    </div>
+                                                                                                                <div class="row form-group">
+                                                                <label for="FatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="Father Name (Amh)">Father Name (Amh)</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtFatherNameAmh" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Father Name (Amh)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.FatherName_Amh">
+                                                                </div>
+                                                            </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="GrandFatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="G/Father Name (Eng)">G/Father Name (Eng)</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="Kebede" type="text" id="txtGrandFatherNameEng" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter G/Father Name (Eng)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.GrandFatherName_Eng">
+                                                        </div>
+                                                    </div>
+                                                            <div class="row form-group">
+                                                                <label for="GrandFatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="G/Father Name (Amh)">G/Father Name (Amh)</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtGrandFatherNameAmh" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter G/Father Name (Amh)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.GrandFatherName_Amh">
+                                                                </div>
+                                                            </div>
+                                                                                                                <div class="row form-group">
+                                                                <label for="MobileNumber" class="col-sm-4 col-form-label"><span class="localize" data-key="House Number">House Number</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtPhoneNumber" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter House Number" required maxlength="20" autocomplete="off" autofocus name="updateCommand.HouseNo">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row form-group">
+                                                                <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Gender">Gender</span><span class="text-danger">*</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <select id="ddlLocalLanguageGender" class="form-control" data-val="true" data-val-required="The GenderId field is required." name="updateCommand.GenderId">
+                                                                        <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                                    <option selected="selected" value="1">&#x12C8;&#x1295;&#x12F5;</option>
+<option value="2">&#x1234;&#x1275;</option>
+</select>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                <div class="col-lg-6">
+                                                            <div class="row form-group">
+                                                                <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="First Name (Amh)">First Name (Amh)</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtFirstNameAmh" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter First Name (Amh)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.FirstName_Amh">
+                                                                </div>
+                                                            </div>
+                                                    <div class="row form-group">
+                                                        <label for="FatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="Father Name (Eng)">Father Name (Eng)</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="Ahmed" type="text" id="txtFatherNameEng" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Father Name (Eng)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.FatherName_Eng">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="GrandFatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="Mother Name (Eng)">Mother Name (Eng)</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="" type="text" id="txtMotherNameEng" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Mother Name (Eng)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.MotherFullName_Eng">
+                                                        </div>
+                                                    </div>
+                                                            <div class="row form-group">
+                                                                <label for="GrandFatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="Mother Name (Amh)">Mother Name (Amh)</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtMotherNameAmh" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Mother Name (Amh)" required maxlength="20" autocomplete="off" autofocus name="updateCommand.MotherFullName_Amh">
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div><span>      </span></div>
+                                                            <div class="row form-group">
+                                                                <label for="customFile" class="col-sm-4 col-form-label"><span class="localize" data-key="Upload Image">Upload Image</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-6">
+
+                                                                    <input hidden type="text" id="imagePath" name="updateCommand.PathToProfilePic" value="" />
+                                                                    <input type="file" name="filename" id="filename" onchange="showImgPreview(this);">
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <button id="btnUpload" class="btn btn-danger btn-sm localize" style="height:35px;">Upload</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <label for="MobileNumber" class="col-sm-4 col-form-label"><span class="localize" data-key="Mobile Number">Mobile Number</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtMobileNumber" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Mobile Number" required maxlength="20" autocomplete="off" autofocus name="updateCommand.MobileNo">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <label for="MobileNumber" class="col-sm-4 col-form-label"><span class="localize" data-key="Phone Number">Phone Number</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="text" id="txtPhoneNumber" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Phone Number" required maxlength="20" autocomplete="off" autofocus name="updateCommand.PhoneNo">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="Date of Birth">Date of Birth</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <!--<input id="datepicker" class="form-control"/>-->
+                                                                    <div class="custom-date input-group m-b-10">
+                                                                        <input value="1/1/0001 12:00:00 AM" type="date" readonly="readonly" id="txtDoB" class="datepicker form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Date" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The DateOfBirth field is required." name="updateCommand.DateOfBirth">
+                                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <label for="age" class="col-sm-4 col-form-label"><span class="localize" data-key="Age">Age</span><span class="text-danger">*</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="45" onkeypress="return validateNumber(event);" type="number" min="18" max="200" id="txtAge" class="form-control localize" ondrop="return false" onpaste="return false" placeholder="Enter Age" required maxlength="3" autocomplete="off" autofocus data-val="true" data-val-required="The Age field is required." name="updateCommand.Age">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <label for="age" class="col-sm-4 col-form-label"><span class="localize" data-key="Bank Account">Bank Account</span><span class="text-danger"></span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input value="" type="number" min="18" max="200" id="txtAge" class="form-control localize" ondrop="return false" onkeypress="return validateNumber(event);" onpaste="return false" placeholder="Enter Bank Account No." required maxlength="3" autocomplete="off" autofocus name="updateCommand.BankAccountNo">
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card  tab mb-3">
+                                        <div class="card-header">
+                                            <h3><i class="fa fa-users"></i> <span class="localize" data-key="Household Statstics">Household Statstics</span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+
+                                                    <div class="row form-group">
+                                                        <label for="HouseholdID" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Male Members">No. Male Members</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="1" onkeypress="return validateNumber(event);" type="number" id="txtMaleMemberSize" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Male Member Size" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The MaleMemberSize field is required." name="updateCommand.MaleMemberSize">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Able Bodied Male">No. Able Bodied Male</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="0" onkeypress="return validateNumber(event);" type="number" id="txtNoAbleBodiedMale" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter No. Able Bodied Male" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The NumberOfMaleAbleBody field is required." name="updateCommand.NumberOfMaleAbleBody">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="FatherName" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Of Male Particpant">No. Of  Male Particpant</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="1" onkeypress="return validateNumber(event);" type="number" id="txtNoOfMaleParticpant" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter No. Of  Female Particpant" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The NumberOfParticipatingMale field is required." name="updateCommand.NumberOfParticipatingMale">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="col-lg-1 col-xl-10 border-left-0">
+                                                            <b class="localize" data-key="Total Family Size :">Total Family Size :</b>  <label id="TotalFamilySize">0</label>
+                                                            <br /> <br />
+                                                            <b class="localize" data-key="Total Able Body :">Total Able Body :</b>    <label id="TotalAbleBody">0</label>
+                                                            <br /> <br />
+                                                            <b class=" localize" data-key="Total Partispant :">Total Partispant :</b>   <label id="TotalPartispant">0</label>
+                                                            <br /> <br />
+                                                            <div class="m-b-10"></div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="row form-group">
+                                                        <label for="HouseholdID" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Female Members">No. Female Members</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="1" onkeypress="return validateNumber(event);" type="number" id="txtFemaleMemberSize" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter Female Member Size" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The FemaleMemberSize field is required." name="updateCommand.FemaleMemberSize">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Able Bodied Female">No. Able Bodied Female</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="1" onkeypress="return validateNumber(event);" type="number" id="txtNoAbleBodiedFemale" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter No. Able Bodied Female" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The NumberOfFemaleAbleBody field is required." name="updateCommand.NumberOfFemaleAbleBody">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="FirstName" class="col-sm-4 col-form-label"><span class="localize" data-key="No. Of Female Particpant">No. Of  Female Particpant</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input value="1" onkeypress="return validateNumber(event);" type="number" id="txtNoOfFemaleParticpant" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Enter No. Of  Male Particpant" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The NumberOfParticipatingFemale field is required." name="updateCommand.NumberOfParticipatingFemale">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div><span>      </span></div>
+
+
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="card tab mb-3">
+                                        <div class="card-header">
+                                            <h3><i class="fa fa-archive"></i> <span class="localize" data-key="Other Details">Other Details</span></h3>
+                                        </div>
+                                        <div class="card-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Program Component">Program Component</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlprogramComponent" class="form-control" data-val="true" data-val-required="The HouseholdProgramId field is required." name="updateCommand.HouseholdProgramId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1">&#x124B;&#x121A; &#x1240;&#x1325;&#x1270;&#x129B; &#x12F5;&#x130B;&#x134D;</option>
+<option selected="selected" value="2">&#x12E8;&#x1205;&#x12DD;&#x1265; &#x1235;&#x122B;</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Educational Level">Educational Level</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlLocalLanguageGender" class="form-control " data-val="true" data-val-required="The EducationLevelId field is required." name="updateCommand.EducationLevelId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1">&#x12EB;&#x120D;&#x1270;&#x121B;&#x1228;</option>
+<option selected="selected" value="2">Below 6th grade</option>
+<option value="3">Below 10th grade</option>
+<option value="4">TVET Completed</option>
+<option value="5">Diploma</option>
+<option value="6">Undergraduate degree</option>
+<option value="7">Graduate degree</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Health Status">Health Status</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlLocalLanguageGender" class="form-control" data-val="true" data-val-required="The HealthStatusId field is required." name="updateCommand.HealthStatusId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1">&#x1324;&#x1293;&#x121B;</option>
+<option value="2">&#x1260;&#x12A0;&#x12AB;&#x120D; &#x1309;&#x12F3;&#x1270;&#x129B;</option>
+<option selected="selected" value="3">&#x1225;&#x122D; &#x12E8;&#x1230;&#x12F0;&#x12F0; &#x1205;&#x1218;&#x121D;</option>
+<option value="4">&#x12A0;&#x12A5;&#x121D;&#x122E; &#x1205;&#x1218;&#x121D;</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Marital Status">Marital Status</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlLocalLanguageGender" class="form-control" data-val="true" data-val-required="The MaritalStatusId field is required." name="updateCommand.MaritalStatusId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option selected="selected" value="1">Married</option>
+<option value="2">Divorced</option>
+<option value="3">Irregular Union</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Relation With Household">Relation With Household</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlRelationtoHH" class="form-control" data-val="true" data-val-required="The RelationToHouseholdId field is required." name="updateCommand.RelationToHouseholdId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1">HEAD</option>
+<option value="2">SPOUSE</option>
+<option selected="selected" value="3">SON/DAUGHTER</option>
+<option value="4">GRANDCHILD</option>
+<option value="5">FATHER/MOTHER</option>
+<option value="6">SISTER/BROTHER</option>
+<option value="7">NIECE/NEPHEW</option>
+<option value="8">UNCLE/AUNT</option>
+<option value="9">SON/DAUGHTER IN-LAW</option>
+<option value="10">FATHER/MOTHER IN-LAW</option>
+<option value="11">BROTHER/SISTER IN-LAW</option>
+<option value="12">GRANDPARENTS</option>
+<option value="13">OTHER RELATIVES</option>
+<option value="14">SERVANT</option>
+<option value="15">NON RELATIVES</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Budget Catagory">Budget Catagory</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlBudgetCatagory" class="form-control" data-val="true" data-val-required="The BudgetCategoryId field is required." name="updateCommand.BudgetCategoryId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1"></option>
+<option value="2"></option>
+<option value="3"></option>
+<option value="4"></option>
+</select>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Beneficiary Type">Beneficiary Type</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlLocalLanguageGender" class="form-control" data-val="true" data-val-required="The BeneficiaryTypeId field is required." name="updateCommand.BeneficiaryTypeId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option selected="selected" value="1">&#x1218;&#x1235;&#x122B;&#x1275; &#x12E8;&#x121A;&#x127D;&#x120D; &#x12A0;&#x12AB;&#x120D;</option>
+<option value="2">&#x1218;&#x1283;&#x12AB;&#x1208;&#x129B; &#x1218;&#x1235;&#x122B;&#x1275; &#x12E8;&#x121A;&#x127D;&#x120D; &#x12A0;&#x12AB;&#x120D;</option>
+<option value="3">&#x1218;&#x1235;&#x122B;&#x1275; &#x12E8;&#x121B;&#x12ED;&#x127D;&#x120D; &#x12A0;&#x12AB;&#x120D;</option>
+</select>
+
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row form-group">
+                                                        <label for="maritalStatus" class="col-sm-4 col-form-label"><span class="localize" data-key="Household Status">Household Status</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <select id="ddlHouseholdStaus" class="form-control" data-val="true" data-val-required="The HouseholdStatusId field is required." name="updateCommand.HouseholdStatusId">
+                                                                <option value="0" class="localize" data-key="Select">--Select--</option>
+                                                            <option value="1">&#x1234;&#x1275; &#x12E8;&#x1264;&#x1270;&#x1230;&#x1265; &#x1283;&#x120B;&#x134A;</option>
+<option value="2">&#x1270;&#x1263;&#x12D5;&#x1275; &#x12E8;&#x1264;&#x1270;&#x1230;&#x1265; &#x1283;&#x120B;&#x134A;</option>
+<option selected="selected" value="3">&#x12A0;&#x1228;&#x130B;&#x12CD;&#x12EB;&#x1295; &#x12E8;&#x1264;&#x1270;&#x1230;&#x1265; &#x1283;&#x120B;&#x134A;</option>
+<option value="4">&#x12E8;&#x120D;&#x1306;&#x127D; &#x12E8;&#x1264;&#x1270;&#x1230;&#x1265; &#x1283;&#x120B;&#x134A;</option>
+<option value="5">&#x120C;&#x120B;(&#x12A8;&#x120B;&#x12ED; &#x12A0;&#x120D;&#x1270;&#x1320;&#x1240;&#x1230;&#x121D;)</option>
+</select>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="Registration Date">Registration Date</span><span class="text-danger">*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <!--<input id="datepicker" class="form-control"/>-->
+                                                            <div class="custom-date input-group m-b-10">
+                                                                <input type="text" value="1/1/0001 12:00:00 AM" id="datepicker" class="datepicker form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Deposit Date" required maxlength="20" autocomplete="off" data-val="true" data-val-required="The RegistrationDate field is required." name="updateCommand.RegistrationDate">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="PSNPMember Since">PSNPMember Since</span> <span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <!--<input id="datepicker" class="form-control"/>-->
+                                                            <div class="custom-date input-group m-b-10">
+                                                                <input value="1/1/0001 12:00:00 AM" type="text" id="txtPSNPMemberSince" class="datepicker form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Date" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The PSNPMemberSince field is required." name="updateCommand.PSNPMemberSince">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+
+                                                   
+                                                    <div class="row form-group">
+                                                        <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="PSNPMember To">PSNPMember To</span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <!--<input id="datepicker" class="form-control"/>-->
+                                                            <div class="custom-date input-group m-b-10">
+                                                                <input value="1/1/0001 12:00:00 AM" type="text" id="txtPSNPMemberTo" class="datepicker form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Date" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The PSNPMemberTo field is required." name="updateCommand.PSNPMemberTo">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="Eligible To">Eligible To</span> <span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <!--<input id="datepicker" class="form-control"/>-->
+                                                            <div class="custom-date input-group m-b-10">
+                                                                <input value="1/1/0001 12:00:00 AM" type="text" id="txtEligibleTo" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Date" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The EligibleTo field is required." name="updateCommand.EligibleTo">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="datepicker" class="col-sm-4 col-form-label"><span class="localize" data-key="Eligible From">Eligible From </span><span class="text-danger"></span></label>
+                                                        <div class="col-sm-8">
+                                                            <!--<input id="datepicker" class="form-control"/>-->
+                                                            <div class="custom-date input-group m-b-10">
+                                                                <input value="1/1/0001 12:00:00 AM" type="text" id="txtEligibleFrom" class="form-control localize" ondrop="return false" onkeypress="return blockSpecialChar(event)" onpaste="return false" placeholder="Select Date" required maxlength="20" autocomplete="off" autofocus data-val="true" data-val-required="The EligibleFrom field is required." name="updateCommand.EligibleFrom">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="GrandFatherName" class="col-sm-5 col-form-label"><span class="localize" data-key="Is Self Support Enabled">Is Self Support Enabled</span><span class="text-danger"></span></label>
+                                                        <div class="">
+                                                            <input type="checkbox" id="ChkIsSelfSupportEnabled" class="form-control" ondrop="return false" data-val="true" data-val-required="The IsSelfSupportEnabled field is required." name="updateCommand.IsSelfSupportEnabled" value="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="GrandFatherName" class="col-sm-5 col-form-label"><span class="localize" data-key="Is Eligible">Is Eligible</span><span class="text-danger">*</span></label>
+                                                        <div class="">
+                                                            <input type="checkbox" class="form-control" checked="checked" data-val="true" data-val-required="The IsEligible field is required." id="updateCommand_IsEligible" name="updateCommand.IsEligible" value="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="MobileNumber" class="col-sm-5 col-form-label"><span class="localize" data-key="Is Household Head">Is Household Head</span><span class="text-danger">*</span></label>
+                                                        <div class="">
+                                                            <input type="checkbox" class="form-control" checked="checked" data-val="true" data-val-required="The Is_Household_Head field is required." id="updateCommand_Is_Household_Head" name="updateCommand.Is_Household_Head" value="true">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <label for="GrandFatherName" class="col-sm-5 col-form-label"><span class="localize" data-key="Is Household Labor Out side PSNP">Is Household Labor Out side PSNP</span><span class="text-danger"></span></label>
+                                                        <div class="">
+                                                            <input type="checkbox" class="form-control" data-val="true" data-val-required="The IsHouseholdLaborOutsidePSNP field is required." id="updateCommand_IsHouseholdLaborOutsidePSNP" name="updateCommand.IsHouseholdLaborOutsidePSNP" value="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label for="MobileNumber" class="col-sm-5 col-form-label"><span class="localize" data-key="Is There Orphan In The Household">Is There Orphan In The Household</span><span class="text-danger"></span></label>
+                                                        <div class="">
+                                                            <input type="checkbox" class="form-control" data-val="true" data-val-required="The IsThereOrphanInTheHousehold field is required." id="updateCommand_IsThereOrphanInTheHousehold" name="updateCommand.IsThereOrphanInTheHousehold" value="true">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div><span>      </span></div>
+
+
+
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-sm-6">
+
+                                        <div class="row form-group">
+                                            <div class="col-sm-6">
+                                                <input type="submit" onclick="return Validate('Update');" class="btn btn-primary localize" value="Update">
+                                                <button type="button" class="btn bg-danger localize">Reset</button>
+                                            </div>
+                                        </div>
+												</div> -->
+												
+												<div style="overflow:auto;">
+													<div style="float:right;">
+													  <button type="button" class="btn btn-secondary rounded-0" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+													  <button type="button" class="btn btn-primary rounded-0" id="nextBtn" onclick="nextPrev(1)">Next</button>
+													</div>
+												 </div>
+												<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:35px;">
+	<span class="step"></span>
+	<span class="step"></span>
+	<span class="step"></span>
+	<!-- <span class="step"></span> -->
+ </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Bd3me9jbk9EvdNXlaMFnIQrJvqRjni7xfkX0KQblQnTZf25iBWfnwzohVVRKBWCZeIRtpBSrSBKs-Ah7ijrGcB9YFPEANU8eT5-BwVXGOCah6NkRStO4qp4jzX6H9df8GKCfgsfweDduMKLJkFZHUsim5rIw_VsjlKQWSXMftnyii66eo4SzlGTHC2Gct6bkg" /><input name="updateCommand.IsSelfSupportEnabled" type="hidden" value="false"><input name="updateCommand.IsEligible" type="hidden" value="false"><input name="updateCommand.Is_Household_Head" type="hidden" value="false"><input name="updateCommand.IsHouseholdLaborOutsidePSNP" type="hidden" value="false"><input name="updateCommand.IsThereOrphanInTheHousehold" type="hidden" value="false"></form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END container-fluid -->
+</div>
+<!-- END content -->
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <p>  <a href="/Report/ReportViewer/Home/Privacy">Privacy</a>   &copy;  Copyright 2019 MoLSA, Ministry of Agriculture(MoA), All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+        <script src="/assets/js/jquery-1.10.2.min.js"></script>
+        <script src="/assets/js/modernizr.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/moment.min.js"></script>
+        <script src="/assets/js/jquery-ui.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.validate.min.js"></script>
+        <script src="/assets/js/detect.js"></script>
+        <script src="/assets/js/fastclick.js"></script>
+        <script src="/assets/js/jquery.blockUI.js"></script>
+        <script src="/assets/js/jquery.nicescroll.js"></script>
+        <script src="/assets/js/bootstrap-datepicker.min.js"></script>
+        <!-- App js -->
+        <script src="/assets/js/pikeadmin.js"></script>
+        <!-- BEGIN Java Script for this page -->
+        <script src="/assets/js/Chart.min.js"></script>
+        <!-- Counter-Up-->
+        <script src="/assets/plugins1/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="/assets/plugins1/counterup/jquery.counterup.min.js"></script>
+
+        <script src="https://swisnl.github.io/jQuery-contextMenu/dist/jquery.contextMenu.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="/assets/js/canvasjs.min.js"></script>
+        <script src="/assets/js/jquery-confirm.min.js"></script>
+
+
+
+        <script>
+             
+          $(function(){
+                $("#rootUrl").val('http://164.164.122.187:80'); //to be used in Js files where Razor is not available
+            })  
+            $.ajax({
+                type: 'GET',
+                url: 'http://164.164.122.187:80/Identity/Users/GetUserDetails',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+
+                success: function (response) {
+                    $('#fullname').html(response.firstName_Eng + " " + response.fatherName_Eng + " " + response.grandFatherName_Eng);
+                   // console.log(response)
+                    var data = {
+                        UserId: response.id
+                            }
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://164.164.122.187:80/api/UserInfo/GeUserInfoByUserId',
+                        data:data,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        success: function (response) {
+                            //console.log(response);
+                            $('#organization').html(response.organizationName);
+                            if (response.locationHierarchy == null) {
+                                $('#cdateTime').html('Ethiopia');
+                            }
+                            else {
+                                $('#cdateTime').html(response.locationHierarchy);
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+
+                        }
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+
+                }
+            });
+        </script>
+
+
+        <script>
+            function loadNavigation(pgName, gId, pgId, plinkId) {
+                var pathName = window.location.pathname;
+                var path = pathName.split("/");
+                var fPath = path[1];
+                var sPath = path[2];
+                var tlen = path.length;
+                var sPath = path[tlen - 1];
+                if (pgName == sPath) {
+                    $('.' + gId).addClass('active');
+                    $('.' + pgId).addClass('active');
+                    $('.' + pgId + ' a:first').addClass('subdrop');
+                    $('.' + plinkId).addClass('active');
+                }
+            }
+            function loadNavigationTargeting(pgName, gId, pgId,tarID, plinkId) {
+                var pathName = window.location.pathname;
+                var path = pathName.split("/");
+                var fPath = path[1];
+                var sPath = path[2];
+                var tlen = path.length;
+                var sPath = path[tlen - 1];
+                if (pgName == sPath) {
+                    $('.' + gId).addClass('active');
+                    $('.' + pgId).addClass('active');
+                    $('.' + tarID).addClass('active');
+                    $('.' + tarID + ' a:first').addClass('subdrop');
+                    $('.' + plinkId).addClass('active');
+                }
+            }
+
+             function loadNavigationTargetingWithGUId(pgName, gId, pgId,tarID, plinkId) {
+                var pathName = window.location.pathname;
+                var path = pathName.split("/");
+                var fPath = path[1];
+                var sPath = path[2];
+                var tlen = path.length;
+                var sPath = path[tlen - 2];
+                if (pgName == sPath) {
+                    $('.' + gId).addClass('active');
+                    $('.' + pgId).addClass('active');
+                    $('.' + tarID).addClass('active');
+                    $('.' + tarID + ' a:first').addClass('subdrop');
+                    $('.' + plinkId).addClass('active');
+                }
+            }
+        </script>
+        <script>
+
+            var currentdate = new Date();
+
+                        var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                        var hours = currentdate.getHours();
+                        var minutes = currentdate.getMinutes();
+                        var ampm = hours >= 12 ? 'PM' : 'AM';
+                        hours = hours % 12;
+                        hours = hours ? hours : 12; // the hour '0' should be '12'
+                        minutes = minutes < 10 ? '0' + minutes : minutes;
+                        var strTime = hours + ':' + minutes + ' ' + ampm;
+
+
+                        var datetime = strTime + ", "
+                            + weekday[currentdate.getDay()] + ", "
+                            + month[currentdate.getMonth()] + " "
+                            + currentdate.getDate() + ", "
+                            //+ (currentdate.getMonth()+1)  + "/"
+                            + currentdate.getFullYear() + " "
+
+                        //+ currentdate.getFullYear() + " </br> "
+                                                            var currentdate = new Date();
+            var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var weekdayAm = ["እሁድ", "ሰኖ", "ማክሰኖ", "እሮብ", "ሐሙስ", "አርብ", "ቅዳሜ"];
+            var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var monthAm = ["መስከረም", "ጥቅምት", "ኅዳር", "ታህሣሥ", "ጥር", "የካቲት", "መጋቢት", "ሚያዝያ", "ግንቦት", "ሰኔ", "ሐምሌ", "ነሐሴ", "ጳጉሜ"];
+
+                                                            var hours = currentdate.getHours();
+                                                            var minutes = currentdate.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            var ampmAm = hours >= 12 ? 'ከሰዓት በኋላ' : 'ጠዋት';
+                                                            hours = hours % 12;
+                                                            hours = hours ? hours : 12; // the hour '0' should be '12'
+                                                            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            var strTimeAm = hours + ':' + minutes + ' ' + ampmAm;
+
+
+var datetime = strTime + ", "
++ weekday[currentdate.getDay()] + ", "
++ month[currentdate.getMonth()] + " "
++ currentdate.getDate() + ", "
+//+ (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " "
+
+            var datetimeAm = strTimeAm + ", "
+                + weekdayAm[currentdate.getDay()] + ", "
+                + monthAm['27'-1] + " "
+                + '07' + ", "
+                //+ (currentdate.getMonth()+1)  + "/"
+                + + '20' + '2012' + " ";
+
+
+                    //tree view location details script
+                    $(document).ready(function () {
+                        $.fn.extend({
+                treed: function (o) {
+
+                        var openedClass = 'fa fa-minus';
+                        var closedClass = 'fa fa-plus';
+
+                        if (typeof o != 'undefined') {
+                            if (typeof o.openedClass != 'undefined') {
+                                openedClass = o.openedClass;
+                            }
+                            if (typeof o.closedClass != 'undefined') {
+                                closedClass = o.closedClass;
+                            }
+                        }
+                    ;
+
+                        //initialize each of the top levels
+                        var tree = $(this);
+                        tree.addClass("tree");
+                        tree.find('li').has("ul").each(function () {
+                            var branch = $(this); //li with children ul
+                            branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+                            branch.addClass('branch');
+                            branch.on('click', function (e) {
+                                if (this == e.target) {
+                                    var icon = $(this).children('i:first');
+                                    icon.toggleClass(openedClass + " " + closedClass);
+                                            $(this).children().children().toggle();
+                                }
+                            })
+                                    branch.children().children().toggle();
+                        });
+                        //fire event from the dynamically added icon
+                        tree.find('.branch .indicator').each(function () {
+                                    $(this).on('click', function () {
+                                        $(this).closest('li').click();
+                            });
+                        });
+                        //fire event to open branch if the li contains an anchor instead of text
+                        tree.find('.branch>a').each(function () {
+                                    $(this).on('click', function (e) {
+                                        $(this).closest('li').click();
+                                e.preventDefault();
+                            });
+                        });
+                        //fire event to open branch if the li contains a button instead of text
+                        tree.find('.branch>button').each(function () {
+                                    $(this).on('click', function (e) {
+                                        $(this).closest('li').click();
+                                e.preventDefault();
+                            });
+                        });
+                    }
+                });
+
+                        //Initialization of treeviews
+
+                        $('#tree1').treed();
+
+                        $('#tree2').treed({ openedClass: 'glyphicon-folder-open', closedClass: 'glyphicon-folder-close' });
+
+                        $('#tree3').treed({ openedClass: 'glyphicon-chevron-right', closedClass: 'glyphicon-chevron-down' });
+
+            });
+            // END CODE FOR BASIC DATA TABLE
+
+        </script>
+        <script>
+            $('#txtLevelEngSearch').keyup(function () {
+                var filter_text = $(this).val();
+                // If user input is not null
+                if (filter_text) {
+                    // Iterate through all branches
+                    $('.tree-li-ul').each(function () {
+                        // Initiate match flag to false for this branch
+                        var match_flag = false
+                        // Iterate through all items within one branch
+                        $(this).children().each(function () {
+                            // If user input matches this item
+                            if ($(this).children().text().toLowerCase().indexOf(filter_text) >= 0) {
+                                // Set match_flag for this branch to true
+                                match_flag = true;
+                                // Expand this branch
+                                $(this).parent().addClass('tree-open');
+                                // Show this item
+                                $(this).slideDown();
+                            }
+                            // If user input doesn't match this item
+                            else {
+                                // Hide this item
+                                $(this).slideUp();
+                                // If user input doesn't match any item in this branch, collapse this branch
+                                if (!match_flag) $(this).parent().parent().removeClass('tree-open');
+                            }
+                        });
+                    });
+
+                }
+                // If user input is null
+                else {
+                    // Hide all the branches
+                    $('.tree-li-ul').removeClass('tree-open');
+                    // Show all items
+                    $('.tree-li-ul-li').slideDown();
+                }
+            });
+        </script>
+        <!-- END Java Script for this page -->
+    
+    
+    <script src="/js/site.js?v=0OXmF28c6Xfhgkdib2y6vibWt7O9pLnKWAtwm4roXss"></script>
+    <script src="/js/localization/localization.js"></script>
+    <script src="/js/localization/localizationjsontemplete.js"></script>
+    <script>
+                // localization script
+                // Usage: requires class="localize" and data-key=
+                // Resharper creates and error on GetLocal but it is ok.
+        $(document).ready(function () {
+            localize(`/Registration/Households/GetLocal`, 0);
+        }); 
+
+
+        var baseUrl = 'http' + "://" + '164.164.122.187' + "/";;
+var areaName = 'Registration';
+var controllerName = 'Households';
+var actionName = 'EditGeneralInfo';
+localizejsonTemplete(baseUrl, areaName, controllerName, actionName);
+
+    </script>
+    
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.plugin.min.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.plus.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.ethiopian.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.ethiopian-am.js"></script>
+    <script src="/js/Registration/HouseholdGeneralInfo-ajax.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.picker.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars.picker-am.js"></script>
+    <script src="/assets/plugins1/jquery.calendars/js/jquery.calendars-am.js"></script>
+    <script src="/js/Registration/Registration-validation.js"></script>
+    <script src="/assets/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/plugins1/jquery.filer/js/jquery.filer.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#example1').DataTable();
+        var currentLanguageId = '';
+        useDatepicker(currentLanguageId);
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#example1').DataTable();
+           var languageId = '1';
+
+            var lang = parseInt(languageId.toString());
+            if (lang && lang == 1) {
+                $("#disp").calendarsPicker({ calendar: $.calendars.instance("ethiopian") });
+                $('#datepicker').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('ethiopian', 'am') },
+                    $.calendarsPicker.regionalOptions['am']));
+                $('#txtPSNPMemberSince').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('ethiopian', 'am') },
+                    $.calendarsPicker.regionalOptions['am']));
+                $('#txtPSNPMemberTo').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('ethiopian', 'am') },
+                    $.calendarsPicker.regionalOptions['am']));
+                $('#txtEligibleTo').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('ethiopian', 'am') },
+                    $.calendarsPicker.regionalOptions['am']));
+                $('#txtEligibleFrom').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('ethiopian', 'am') },
+                    $.calendarsPicker.regionalOptions['am']));
+
+
+            } else {
+
+
+                $('#datepicker').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('gregorian', 'Eng') },
+                    $.calendarsPicker.regionalOptions['Eng']));
+                $('#txtPSNPMemberSince').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('gregorian', 'Eng') },
+                    $.calendarsPicker.regionalOptions['Eng']));
+                $('#txtPSNPMemberTo').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('gregorian', 'Eng') },
+                    $.calendarsPicker.regionalOptions['Eng']));
+                $('#txtEligibleTo').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('gregorian', 'Eng') },
+                    $.calendarsPicker.regionalOptions['Eng']));
+                $('#txtEligibleFrom').calendarsPicker($.extend(
+                    { calendar: $.calendars.instance('gregorian', 'Eng') },
+                    $.calendarsPicker.regionalOptions['Eng']));
+
+
+            }
+
+
+        });
+    </script>
+
+	 <input type="hidden" id="rootUrl" />
+	 
+	 <script>
+		 var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = true;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+	 </script>
+</body>
+</html>
+

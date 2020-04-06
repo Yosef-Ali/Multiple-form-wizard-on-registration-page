@@ -3,7 +3,6 @@
 ### CSS
 
 1. copy css code below and pest it after link tags in the **<head>..</head>**
-
 approximately at line number 34_
 
 ```css

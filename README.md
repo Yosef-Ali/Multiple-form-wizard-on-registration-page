@@ -90,7 +90,7 @@ approximately at line number 34_
 </div>
 ```
 
-5. Add wizard indicator dots
+5. Add wizard indicator dots</br> Copy and pest the code below just after the closing tag `</div>` of the new buttens code.   
 
 ````html
 <!-- Circles which indicates the steps of the form: -->

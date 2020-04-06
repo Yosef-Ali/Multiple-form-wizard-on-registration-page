@@ -42,7 +42,7 @@ approximately at line number 34_
 ```
 
 2. Giv a class name **`tab`** for each three tables in the wizard</br>
-   fined class name **`card mb-3`** and pest in between **`card tab mb-3`** _approximately at line 519, 913 and 1096._
+   fined class name **`card mb-3`** and pest in between **`card tab mb-3`**</br> _approximately at line No. 519, 913 and 1096._
    ![card tab mb-3](./tab.png)
 
 3. Comment or delete the privies buttons nex to the last wizard table</br>

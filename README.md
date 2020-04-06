@@ -2,7 +2,7 @@
 
 ### CSS
 
-1. copy css code below and pest it after `<link../>` tags in the **`<head>..</head>`**</br>
+#### 1. copy css code below and pest it after `<link../>` tags in the **`<head>..</head>`**</br>
 approximately at line number 34_
 
 ```css
@@ -41,11 +41,11 @@ approximately at line number 34_
     </style>
 ```
 
-2. Giv a class name **`tab`** for each three tables in the wizard</br>
+#### 2. Giv a class name **`tab`** for each three tables in the wizard</br>
    fined class name **`card mb-3`** and pest in between **`card tab mb-3`**</br> _approximately at line No. 519, 913 and 1096._
    ![card tab mb-3](./tab.png)
 
-3. Comment or delete the privies buttons nex to the last wizard table</br>
+#### 3. Comment or delete the privies buttons nex to the last wizard table</br>
    _approximately at line 1581._
 
 ```html
@@ -64,7 +64,7 @@ approximately at line number 34_
 </div>
 ```
 
-4. Replace new buttons code</br>
+#### 4. Replace new buttons code</br>
    Replace the code below after the commented old butter or pest on it to delete.
 
 ```html
@@ -90,7 +90,7 @@ approximately at line number 34_
 </div>
 ```
 
-5. Add wizard indicator dots</br> Copy and pest the code below just after the closing tag `</div>` of the new buttens code.   
+#### 5. Add wizard indicator dots</br> Copy and pest the code below just after the closing tag `</div>` of the new buttens code.   
 
 ````html
 <!-- Circles which indicates the steps of the form: -->
@@ -101,7 +101,8 @@ approximately at line number 34_
 	<!-- <span class="step"></span> -->
 </div>
 ````
-6. Finally copy and pest the javaScript code before the closing </body> tag 
+#### 6. javaScript </br>
+Finally copy and pest the javaScript code before the closing **`</body>`** tag 
 
 ```javaScript
 <script>
